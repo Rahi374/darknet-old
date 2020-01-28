@@ -1,3 +1,6 @@
+libdarknet.a
+libdarknet.so
+
 *.o
 *.dSYM
 *.csv
