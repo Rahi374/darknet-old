@@ -1,5 +1,6 @@
 libdarknet.a
 libdarknet.so
+*.weights
 
 *.o
 *.dSYM
