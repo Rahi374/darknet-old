@@ -78,7 +78,7 @@ detection *avg_predictions(network *net, int *nboxes)
             count += l.outputs;
         }
     }
-    detection *dets = get_network_boxes(net, buff[0].w, buff[0].h, demo_thresh, demo_hier, 0, 1, nboxes);
+    detection *dets = get_network_boxes(net, buff[buff_index].w, buff[buff_index].h, demo_thresh, demo_hier, 0, 1, nboxes);
     return dets;
 }
 
@@ -98,6 +98,8 @@ void *detect_in_thread(void *ptr)
     remember_network(net);
     detection *dets = 0;
     int nboxes = 0;
+    if (buff[buff_index].w == 0 || buff[buff_index].h == 0)
+	    return;
     dets = avg_predictions(net, &nboxes);
 
 
